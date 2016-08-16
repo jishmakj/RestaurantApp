@@ -28,5 +28,6 @@ Route::resource('Order','OrderController');
 Route::resource('OrderItemDetails','OrderItemDetailsController');
 Route::resource('OrderPlace','OrderPlaceController');
 Route::resource('SubCategories','SubCategoriesController');
-
+Route::resource('Master','MasterGroupController');
+Route::resource('Location','LocationController');
 // });

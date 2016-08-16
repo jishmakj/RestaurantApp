@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
+use App\MasterGroup;
 
 class MasterGroupController extends Controller
 {
@@ -15,7 +16,7 @@ class MasterGroupController extends Controller
      */
     public function index()
     {
-        //
+       return  MasterGroup::all();
     }
 
     /**
@@ -36,7 +37,11 @@ class MasterGroupController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $r=new MasterGroup;
+        $r->masterId=$request->input('masterId');
+        $r->name=$request->input('name');
+        $r->details=$request->input('details');
+        $r->save();
     }
 
     /**
@@ -47,7 +52,7 @@ class MasterGroupController extends Controller
      */
     public function show($id)
     {
-        //
+        return MasterGroup::findorfail($id);
     }
 
     /**
@@ -58,7 +63,7 @@ class MasterGroupController extends Controller
      */
     public function edit($id)
     {
-        //
+        return MasterGroup::findorfail($id);
     }
 
     /**
@@ -70,9 +75,12 @@ class MasterGroupController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
-    }
-
+        $r=MasterGroup::findorfail($id);
+        $r->masterId=$request->input('masterId');
+        $r->name=$request->input('name');
+        $r->details=$request->input('details');
+        $r->save();
+}
     /**
      * Remove the specified resource from storage.
      *
@@ -81,6 +89,7 @@ class MasterGroupController extends Controller
      */
     public function destroy($id)
     {
-        //
+       $r=MasterGroup::findorfail($id);
+       $r->delete();
     }
 }

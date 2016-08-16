@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
+use App\Location;
 
 class LocationController extends Controller
 {
@@ -15,7 +16,7 @@ class LocationController extends Controller
      */
     public function index()
     {
-        //
+        return Location::all();
     }
 
     /**
@@ -36,7 +37,11 @@ class LocationController extends Controller
      */
     public function store(Request $request)
     {
-        //
+       $r=new Location;
+       $r->locationId=$request->input('locationId');
+       $r->masterId=$request->input('locationId');
+       $r->name=$request->input('name');
+       $r->save();
     }
 
     /**
@@ -47,7 +52,7 @@ class LocationController extends Controller
      */
     public function show($id)
     {
-        //
+       return  Location::findorfail($id);
     }
 
     /**
@@ -58,7 +63,7 @@ class LocationController extends Controller
      */
     public function edit($id)
     {
-        //
+        return  Location::findorfail($id);
     }
 
     /**
@@ -70,7 +75,12 @@ class LocationController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $r= Location::findorfail($id);
+        $r->locationId=$request->input('locationId');
+        $r->masterId=$request->input('locationId');
+        $r->name=$request->input('name');
+        $r->save();
+
     }
 
     /**
@@ -81,6 +91,8 @@ class LocationController extends Controller
      */
     public function destroy($id)
     {
-        //
+       $r= Location::findorfail($id);
+       $r->delete();
+
     }
 }
