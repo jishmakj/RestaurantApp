@@ -54,7 +54,7 @@ class CardDetailsController extends Controller
      */
     public function show($id)
     {
-       CardDetails::findorfail($id);
+       return CardDetails::findorfail($id);
     }
 
     /**
@@ -65,7 +65,7 @@ class CardDetailsController extends Controller
      */
     public function edit($id)
     {
-       CardDetails::findorfail($id);
+      return  CardDetails::findorfail($id);
     }
 
     /**

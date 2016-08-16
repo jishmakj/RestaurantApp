@@ -60,7 +60,7 @@ class CardBalanceController extends Controller
      */
     public function show($id)
     {
-        CardBalance::findorfail($id);
+        return CardBalance::findorfail($id);
     }
 
     /**
@@ -71,7 +71,7 @@ class CardBalanceController extends Controller
      */
     public function edit($id)
     {
-        CardBalance::findorfail($id);
+       return  CardBalance::findorfail($id);
     }
 
     /**

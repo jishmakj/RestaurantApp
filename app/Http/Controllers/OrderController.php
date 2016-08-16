@@ -45,6 +45,7 @@ class OrderController extends Controller
         $r->primaryItem=$request->input('primaryItem');
         $r->extraItem=$request->input('extraItem');
         $r->modifierItem=$request->input('modifierItem');
+        $r->locationId=$request->input('locationId');
         $r->time=$request->input('time');
         $r->date=$request->input('date');
         $r->save();
@@ -89,6 +90,7 @@ class OrderController extends Controller
         $r->primaryItem=$request->input('primaryItem');
         $r->extraItem=$request->input('extraItem');
         $r->modifierItem=$request->input('modifierItem');
+        $r->locationId=$request->input('locationId');
         $r->time=$request->input('time');
         $r->date=$request->input('date');
         $r->save();

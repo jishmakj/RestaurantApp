@@ -6,9 +6,7 @@ use Illuminate\Http\Request;
 
 use App\Http\Requests;
 
-use App\Item;
-
-class ItemController extends Controller
+class MasterGroupController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -17,7 +15,7 @@ class ItemController extends Controller
      */
     public function index()
     {
-        return Item::all();
+        //
     }
 
     /**
@@ -38,15 +36,7 @@ class ItemController extends Controller
      */
     public function store(Request $request)
     {
-        $r=new Item;
-        $r->itemId=$request->input('itemId');
-        $r->itemName=$request->input('itemName');
-        $r->description=$request->input('description');
-        $r->salesRate=$request->input('salesRate');
-        $r->otherLang=$request->input('otherLang');
-        $r->categoryId=$request->input('categoryId');
-        $r->subCategoryId=$request->input('subCategoryId');
-        $r->save();
+        //
     }
 
     /**
@@ -57,7 +47,7 @@ class ItemController extends Controller
      */
     public function show($id)
     {
-       return Item::findorfail($id);
+        //
     }
 
     /**
@@ -68,7 +58,7 @@ class ItemController extends Controller
      */
     public function edit($id)
     {
-        return Item::findorfail($id);
+        //
     }
 
     /**
@@ -80,15 +70,7 @@ class ItemController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $r=Item::findorfail($id);
-        $r->itemId=$request->input('itemId');
-        $r->itemName=$request->input('itemName');
-        $r->description=$request->input('description');
-        $r->salesRate=$request->input('salesRate');
-        $r->otherLang=$request->input('otherLang');
-        $r->categoryId=$request->input('categoryId');
-        $r->subCategoryId=$request->input('subCategoryId');
-        $r->save();
+        //
     }
 
     /**
@@ -99,7 +81,6 @@ class ItemController extends Controller
      */
     public function destroy($id)
     {
-      $r=Item::findorfail($id);
-      $r->delete();  
+        //
     }
 }

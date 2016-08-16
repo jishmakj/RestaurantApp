@@ -21,6 +21,7 @@ class CreateOrdersTable extends Migration
             $table->integer('primaryItem')->unsigned();
             $table->integer('extraItem')->unsigned();
             $table->integer('modifierItem')->unsigned();
+            $table->integer('locationId')->unsigned();
             $table->string('time');
             $table->string('date');
             $table->foreign('primaryItem')
@@ -34,7 +35,11 @@ class CreateOrdersTable extends Migration
             $table->foreign('modifierItem')
                   ->references('id')->on('modifiers')
                   ->onDelete('restrict')
-                  ->onUpdate('cascade');            
+                  ->onUpdate('cascade');   
+            $table->foreign('locationId')
+                  ->references('id')->on('locations')
+                  ->onDelete('restrict')
+                  ->onUpdate('cascade');         
             $table->timestamps();
         });
     }

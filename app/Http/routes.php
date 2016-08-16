@@ -10,10 +10,11 @@
 | and give it the controller to call when that URI is requested.
 |
 */
-
 Route::get('/', function () {
     return view('welcome');
 });
+// Route::group(array('prefix' => 'admin'), function()
+// {
 
 Route::resource('User','UserController');
 Route::resource('Floor','FloorController');
@@ -27,3 +28,5 @@ Route::resource('Order','OrderController');
 Route::resource('OrderItemDetails','OrderItemDetailsController');
 Route::resource('OrderPlace','OrderPlaceController');
 Route::resource('SubCategories','SubCategoriesController');
+
+// });

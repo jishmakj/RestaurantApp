@@ -22,6 +22,8 @@ class DatabaseSeeder extends Seeder
         $this->call('ItemsTableSeeder');
         $this->call('ModifiersTableSeeder');
         $this->call('ExtrasTableSeeder');
+        $this->call('MasterGroupsTableSeeder');
+        $this->call('LocationsTableSeeder');
         $this->call('OrdersTableSeeder');
         $this->call('OrderPlacesTableSeeder');
         $this->call('OrderItemDetailsTableSeeder');
