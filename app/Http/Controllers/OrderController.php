@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 
 use App\Http\Requests;
 use App\Order;
-
+use App\OrderItemDetail;
 class OrderController extends Controller
 {
     /**
@@ -72,7 +72,12 @@ class OrderController extends Controller
     {
         return Order::findorfail($id);
     }
-
+    public function orderitem($orderid)
+    {
+       return OrderItemDetail::where('order_item_details.orderId','=',$orderid)
+       ->get();
+       
+    }
     /**
      * Update the specified resource in storage.
      *

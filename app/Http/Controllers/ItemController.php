@@ -7,7 +7,10 @@ use Illuminate\Http\Request;
 use App\Http\Requests;
 
 use App\Item;
-
+use App\Modifier;
+use App\Extra;
+use App\Order;
+use App\OrderItemDetail;
 class ItemController extends Controller
 {
     /**
@@ -55,9 +58,9 @@ class ItemController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show($itemid)
     {
-       return Item::findorfail($id);
+       return Item::findorfail($itemid);
     }
 
     /**
@@ -66,9 +69,33 @@ class ItemController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit($itemid)
     {
-        return Item::findorfail($id);
+        return Item::findorfail($itemid);
+    }
+    public function extra($extraid)
+    {
+       return Extra::where('extras.item','=',$extraid)
+       ->get();
+       
+    }
+    public function modifier($modifierid)
+    {
+       return Modifier::where('modifiers.item','=',$modifierid)
+       ->get();
+       
+    }
+     public function order($orderid)
+    {
+       return Order::where('orders.primaryItem','=',$orderid)
+       ->get();
+       
+    }
+    public function orderitem($itemid)
+    {
+       return OrderItemDetail::where('order_item_details.itemId','=',$itemid)
+       ->get();
+       
     }
 
     /**

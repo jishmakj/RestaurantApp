@@ -6,7 +6,8 @@ use Illuminate\Http\Request;
 
 use App\Http\Requests;
 use App\Category;
-
+use App\Item;
+use App\Subcategory;
 class CategoriesController extends Controller
 {
     /**
@@ -56,6 +57,18 @@ class CategoriesController extends Controller
         return Category::findorfail($id);
     }
 
+    public function item($catid)
+    {
+       return Item::where('items.categoryId','=',$catid)
+       ->get();
+       
+    }
+    public function subcategory($catid)
+    {
+       return Subcategory::where('subcategories.categoryId','=',$catid)
+       ->get();
+       
+    }
     /**
      * Show the form for editing the specified resource.
      *

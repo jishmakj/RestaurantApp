@@ -6,7 +6,8 @@ use Illuminate\Http\Request;
 
 use App\Http\Requests;
 use App\CardDetails;
-
+use App\OrderPlace;
+use App\CardBalance;
 class CardDetailsController extends Controller
 {
     /**
@@ -67,7 +68,18 @@ class CardDetailsController extends Controller
     {
       return  CardDetails::findorfail($id);
     }
-
+    public function orderplace($cardid)
+    {
+       return OrderPlace::where('order_places.cardId','=',$cardid)
+       ->get();
+       
+    }
+     public function cardbalance($cardid)
+    {
+       return CardBalance::where('card_balances.cardId','=',$cardid)
+       ->get();
+       
+    }
     /**
      * Update the specified resource in storage.
      *

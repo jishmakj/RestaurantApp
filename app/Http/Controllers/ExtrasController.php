@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Http\Requests;
 
 use App\Extra;
+use App\Order;
 
 class ExtrasController extends Controller
 {
@@ -69,6 +70,12 @@ class ExtrasController extends Controller
     public function edit($id)
     {
        return Extra::findorfail($id);
+    }
+     public function order($orderid)
+    {
+       return Order::where('orders.extraItem','=',$orderid)
+       ->get();
+       
     }
 
     /**

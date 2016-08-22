@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 
 use App\Http\Requests;
 use App\MasterGroup;
-
+use App\Location;
 class MasterGroupController extends Controller
 {
     /**
@@ -64,6 +64,12 @@ class MasterGroupController extends Controller
     public function edit($id)
     {
         return MasterGroup::findorfail($id);
+    }
+    public function location($loactionid)
+    {
+       return Location::where('locations.masterId','=',$loactionid)
+       ->get();
+       
     }
 
     /**

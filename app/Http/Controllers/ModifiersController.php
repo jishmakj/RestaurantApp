@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 
 use App\Http\Requests;
 use App\Modifier;
-
+use App\Order;
 class ModifiersController extends Controller
 {
     /**
@@ -69,7 +69,12 @@ class ModifiersController extends Controller
     {
        return Modifier::findorfail($id);
     }
-
+     public function order($orderid)
+    {
+       return Order::where('orders.modifierItem','=',$orderid)
+       ->get();
+       
+    }
     /**
      * Update the specified resource in storage.
      *

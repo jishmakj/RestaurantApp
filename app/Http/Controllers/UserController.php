@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 
 use App\Http\Requests;
 use App\User;
-use App\Category;
+use App\OrderPlace;
 
 class UserController extends Controller
 {
@@ -54,6 +54,7 @@ class UserController extends Controller
      */
     public function show($id)
     {
+      
         return  User::findorfail($id);
     }
 
@@ -65,9 +66,15 @@ class UserController extends Controller
      */
     public function edit($id)
     {
+
         return  User::findorfail($id);
     }
-
+     public function orderplace($userid)
+    {
+       return OrderPlace::where('order_places.userId','=',$userid)
+       ->get();
+       
+    }
     /**
      * Update the specified resource in storage.
      *

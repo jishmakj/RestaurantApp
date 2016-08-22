@@ -6,7 +6,8 @@ use Illuminate\Http\Request;
 
 use App\Http\Requests;
 use App\Subcategory;
-
+use App\Item;
+//use App\Category;
 class SubCategoriesController extends Controller
 {
     /**
@@ -66,6 +67,18 @@ class SubCategoriesController extends Controller
     {
        return  Subcategory::findorfail($id);
     }
+     public function item($catid)
+    {
+       return Item::where('items.subCategoryId','=',$catid)
+       ->get();
+       
+    }
+    // public function category($catid)
+    // {
+    //    return Category::where('categories.id','=',$catid)
+    //    ->get();
+       
+    // }
 
     /**
      * Update the specified resource in storage.

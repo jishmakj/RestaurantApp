@@ -73,7 +73,7 @@ class CardBalanceController extends Controller
     {
        return  CardBalance::findorfail($id);
     }
-
+    
     /**
      * Update the specified resource in storage.
      *

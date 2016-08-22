@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 
 use App\Http\Requests;
 use App\Location;
-
+use App\Order;
 class LocationController extends Controller
 {
     /**
@@ -65,7 +65,12 @@ class LocationController extends Controller
     {
         return  Location::findorfail($id);
     }
-
+     public function order($orderid)
+    {
+       return Order::where('orders.locationId','=',$orderid)
+       ->get();
+       
+    }
     /**
      * Update the specified resource in storage.
      *
