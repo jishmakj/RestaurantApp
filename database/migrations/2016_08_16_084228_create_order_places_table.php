@@ -16,6 +16,8 @@ class CreateOrderPlacesTable extends Migration
             $table->increments('id');
             $table->integer('userId')->nullable()->unsigned();
             $table->integer('cardId')->nullable()->unsigned();
+            $table->integer('floorId')->nullable()->unsigned();
+            $table->integer('tableId')->nullable()->unsigned();
             $table->foreign('userId')
                   ->references('id')->on('users')
                   ->onDelete('restrict')
@@ -24,6 +26,14 @@ class CreateOrderPlacesTable extends Migration
                   ->references('id')->on('card_details')
                   ->onDelete('restrict')
                   ->onUpdate('cascade');
+            $table->foreign('floorId')
+                  ->references('id')->on('floors')
+                  ->onDelete('restrict')
+                  ->onUpdate('cascade'); 
+            $table->foreign('tableId')
+                  ->references('id')->on('tables')
+                  ->onDelete('restrict')
+                  ->onUpdate('cascade'); 
             $table->timestamps();
         });
     }

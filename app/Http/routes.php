@@ -13,6 +13,8 @@
 Route::get('/', function () {
     return view('welcome');
 });
+
+
 //nested 
 Route::get('Categories/{category}/items/','CategoriesController@item');
 Route::get('SubCategories/{subcategory}/items/','SubCategoriesController@item');
@@ -30,9 +32,8 @@ Route::get('User/{user}/orderplaces/','UserController@orderplace');
 Route::get('CardDetails/{card}/orderplaces/','CardDetailsController@orderplace');
 Route::get('Categories/{category}/subcategories/','CategoriesController@subcategory');
 
-
-
-
+//Route::get('categories/{category}/subcategories/{subcategory}/items','CategoriesController@items');
+//
 
 Route::resource('User','UserController');
 Route::resource('Floor','FloorController');
@@ -48,3 +49,4 @@ Route::resource('OrderPlace','OrderPlaceController');
 Route::resource('SubCategories','SubCategoriesController');
 Route::resource('Master','MasterGroupController');
 Route::resource('Location','LocationController');
+Route::resource('Table','TableController');

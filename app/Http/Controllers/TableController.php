@@ -5,9 +5,9 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
-use App\OrderPlace;
+use App\Table;
 
-class OrderPlaceController extends Controller
+class TableController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,7 +16,7 @@ class OrderPlaceController extends Controller
      */
     public function index()
     {
-        return OrderPlace::all();
+        return Table::all();
     }
 
     /**
@@ -37,13 +37,11 @@ class OrderPlaceController extends Controller
      */
     public function store(Request $request)
     {
-        $r=new OrderPlace;
-        $r->userId=$request->input('userId');
-        $r->userId=$request->input('cardId');
-        $r->floorId=$request->input('floorId');
-        $r->tableId=$request->input('tableId');
-        $r->save();
-        
+       $r=new Table;
+       $r->tableId=$request->input('tableId');
+       $r->name=$request->input('name');
+       $r->floorId=$request->input('floorId');
+       $r->save();
     }
 
     /**
@@ -54,7 +52,7 @@ class OrderPlaceController extends Controller
      */
     public function show($id)
     {
-       return OrderPlace::findorfail($id);
+        return Table::findorfail($id);
     }
 
     /**
@@ -65,7 +63,7 @@ class OrderPlaceController extends Controller
      */
     public function edit($id)
     {
-       return OrderPlace::findorfail($id);
+        return Table::findorfail($id);
     }
 
     /**
@@ -77,11 +75,10 @@ class OrderPlaceController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $r=OrderPlace::findorfail($id);
-        $r->userId=$request->input('userId');
-        $r->userId=$request->input('cardId');
-        $r->floorId=$request->input('floorId');
+        $r=Table::findorfail($id);
         $r->tableId=$request->input('tableId');
+        $r->name=$request->input('name');
+        $r->floorId=$request->input('floorId');
         $r->save();
     }
 
@@ -93,7 +90,7 @@ class OrderPlaceController extends Controller
      */
     public function destroy($id)
     {
-         $r=OrderPlace::findorfail($id);
-         $r->delete();
+       $r=Table::findorfail($id);
+       $r->delete();
     }
 }

@@ -39,7 +39,8 @@ class CreateOrdersTable extends Migration
             $table->foreign('locationId')
                   ->references('id')->on('locations')
                   ->onDelete('restrict')
-                  ->onUpdate('cascade');         
+                  ->onUpdate('cascade'); 
+                    
             $table->timestamps();
         });
     }
